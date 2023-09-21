@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to HTML Converter</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="innerJson">
+            <textarea id="inputJSON" rows="10" cols="50"></textarea>
+        </div>
+        
+        <div class="btn">
+            <button id="generateButton"><span>Generate</span></button>
+        </div>
+        <div id="outputHTML">
+           
+        </div>
+    </div>
+   
+
+  <script>
+    document.getElementById("generateButton").addEventListener("click", function () {
+    const inputJSON = document.getElementById("inputJSON").value;
+    const parsedJSON = JSON.parse(inputJSON);
+    const idSet = new Set();
+    let outputHTML = ""; // Initialize an empty string to store the output HTML
+
+    // Clear previous results
+    document.getElementById("outputHTML").textContent = "";
+
+    parsedJSON.forEach(item => {
+        if (idSet.has(item.id)) {
+            alert("Error: ID duplicated");
+        } else {
+            idSet.add(item.id);
+
+            // Create the HTML structure for each item
+            const div = `
+                <div class="root" data-id="${item.id}">
+                    <span class="username">${item.username}</span>
+                    <span class="video_name">${item.video_name}</span>
+                    <span class="additional_details">
+                        <span class="type">${item.action}</span>
+                    </span>
+                </div>
+            `;
+            outputHTML += div + "\n"; // Append the HTML to the output with line breaks
+
+        }
+    });
+
+    // Set the generated HTML in the output textarea as text
+    document.getElementById("outputHTML").textContent = outputHTML;
+});
+
+  </script>
+</body>
+</html>

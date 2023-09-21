@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.container{
+    width: 500px;
+    height: 600px;
+    border: 2px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.innerJson{
+    position: relative;
+}
+.innerJson::before{
+    position: absolute;
+    content: 'Input Json';
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+   text-align: center;
+   background-color: #DAE8FC;
+   border: 2px solid black;
+    top: -41px;
+    z-index: 999;
+    left: 0;
+}
+#inputJSON{
+    border: 2px solid black;
+    padding: 20px;
+    position: relative;
+}
+
+#inputJSON:before{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: #DAE8FC;
+   border: 2px solid black;
+    top: -20%;
+    padding: 10px;
+    left: -2px;
+    content: 'Output Html';
+    text-align: center;
+}
+
+.btn{
+    width: 85%;
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.btn button{
+    padding: 10px 20px;
+    background:linear-gradient(-180deg,transparent,#E1D5E7);
+    cursor: pointer;
+}
+#outputHTML{
+    height: auto;
+    background-color: white;
+    border: 2px solid black;
+    
+    width: 88%;
+    position: relative;
+}
+#outputHTML:before{
+    position: absolute;
+    width: 100px;
+    border: 2px solid black;
+    top: -23%;
+    padding: 10px;
+    background-color: #DAE8FC;
+    left: -2px;
+    content: 'Output Html';
+    text-align: center;
+}
